@@ -1,0 +1,325 @@
+{
+  "wrd_rahmart": {
+    "1_informasi_proyek": {
+      "nama_website": "Rah-MART",
+      "tagline": "Find Everything You Need",
+      "deskripsi_website": "Rah-MART adalah platform digital yang menyediakan layanan jual beli aset dan berbagai jasa profesional.",
+      "layanan_yang_ditawarkan": [
+        "Properti",
+        "Kendaraan",
+        "Jasa Perpajakan",
+        "Rental Kendaraan",
+        "Design Interior",
+        "Travel Haji & Umroh"
+      ],
+      "fungsi_website": "Media promosi dan katalog online. Pengunjung dapat melihat informasi produk dan layanan yang tersedia, kemudian menghubungi admin melalui WhatsApp untuk melakukan konsultasi maupun negosiasi harga.",
+      "catatan_transaksi": "Website tidak menyediakan fitur transaksi online atau payment gateway. Seluruh proses transaksi dilakukan secara langsung melalui WhatsApp dengan tim Rah-MART."
+    },
+    "2_tujuan_website": [
+      "Meningkatkan kredibilitas bisnis Rah-MART.",
+      "Menampilkan katalog produk dan jasa yang tersedia.",
+      "Memudahkan calon pelanggan mencari produk atau layanan.",
+      "Mempermudah komunikasi dengan calon pelanggan melalui WhatsApp.",
+      "Mempermudah admin dalam mengelola katalog dan konten website."
+    ],
+    "3_target_pengguna": {
+      "pengunjung_website": [
+        "Pembeli properti.",
+        "Penjual properti.",
+        "Pembeli kendaraan.",
+        "Penjual kendaraan.",
+        "Individu atau perusahaan yang membutuhkan jasa perpajakan.",
+        "Pelanggan rental kendaraan.",
+        "Pelanggan jasa desain interior.",
+        "Pelanggan travel haji dan umroh."
+      ],
+      "admin_website": [
+        "Mengelola seluruh konten website.",
+        "Menambah dan memperbarui katalog produk.",
+        "Mengelola informasi layanan.",
+        "Mengelola company profile."
+      ]
+    },
+    "4_struktur_website": {
+      "4_1_beranda": [
+        "Banner utama.",
+        "Logo Rah-MART.",
+        "Tagline 'Find Everything You Need'.",
+        "Deskripsi singkat perusahaan.",
+        "Keunggulan Rah-MART.",
+        "Daftar layanan utama.",
+        "Produk terbaru.",
+        "Tombol Hubungi WhatsApp.",
+        "Testimoni (opsional)."
+      ],
+      "4_2_tentang_kami": [
+        "Profil perusahaan.",
+        "Sejarah singkat perusahaan.",
+        "Visi.",
+        "Misi.",
+        "Nilai perusahaan.",
+        "Keunggulan layanan.",
+        "Informasi kontak."
+      ],
+      "4_3_katalog_produk": {
+        "kategori": {
+          "properti": [
+            "Rumah",
+            "Tanah",
+            "Ruko",
+            "Apartemen"
+          ],
+          "kendaraan": [
+            "Mobil",
+            "Motor"
+          ]
+        },
+        "fitur": [
+          "Pencarian produk.",
+          "Filter kategori.",
+          "Filter harga (opsional).",
+          "Detail produk."
+        ]
+      },
+      "4_4_detail_produk": {
+        "menampilkan": [
+          "Galeri foto produk.",
+          "Nama produk.",
+          "Harga.",
+          "Deskripsi produk.",
+          "Lokasi.",
+          "Status produk.",
+          "Tombol Hubungi via WhatsApp."
+        ],
+        "contoh_pesan_otomatis": "Halo Rah-MART, saya tertarik dengan produk [Nama Produk]. Mohon informasi lebih lanjut."
+      },
+      "4_5_layanan": {
+        "daftar_layanan": [
+          "Jasa Perpajakan",
+          "Rental Kendaraan",
+          "Design Interior",
+          "Travel Haji & Umroh"
+        ],
+        "detail_per_layanan": [
+          "Foto.",
+          "Deskripsi.",
+          "Keunggulan.",
+          "Tombol Hubungi WhatsApp."
+        ]
+      },
+      "4_6_kontak": [
+        "Nomor WhatsApp.",
+        "Email (jika ada).",
+        "Alamat kantor (jika ada).",
+        "Google Maps (opsional).",
+        "Link media sosial."
+      ]
+    },
+    "5_dashboard_admin": {
+      "tujuan": "Dashboard digunakan untuk mengelola seluruh konten website tanpa perlu melakukan perubahan kode secara langsung."
+    },
+    "6_fitur_login_admin": {
+      "field": [
+        "Email / Username",
+        "Password"
+      ],
+      "fitur": [
+        "Login",
+        "Logout"
+      ]
+    },
+    "7_dashboard_utama": {
+      "ringkasan": [
+        "Total Produk",
+        "Total Properti",
+        "Total Kendaraan",
+        "Total Layanan",
+        "Produk Aktif",
+        "Produk Terjual",
+        "Produk Terbaru"
+      ]
+    },
+    "8_manajemen_produk": {
+      "daftar_produk": {
+        "tabel_menampilkan": [
+          "Foto",
+          "Nama Produk",
+          "Kategori",
+          "Harga",
+          "Status",
+          "Tanggal Dibuat",
+          "Aksi"
+        ],
+        "aksi": [
+          "Tambah",
+          "Edit",
+          "Hapus",
+          "Lihat Detail"
+        ]
+      },
+      "tambah_produk": {
+        "field": [
+          "Nama Produk",
+          "Kategori",
+          "Harga",
+          "Deskripsi",
+          "Lokasi",
+          "Upload Foto Utama",
+          "Upload Multiple Foto",
+          "Status Produk"
+        ],
+        "status": [
+          "Tersedia",
+          "Terjual",
+          "Draft"
+        ]
+      },
+      "edit_produk": [
+        "Nama produk",
+        "Harga",
+        "Deskripsi",
+        "Foto",
+        "Kategori",
+        "Status"
+      ],
+      "hapus_produk": "Sistem menampilkan konfirmasi sebelum penghapusan."
+    },
+    "9_manajemen_kategori": {
+      "kategori_bawaan": [
+        "Properti",
+        "Kendaraan",
+        "Jasa Perpajakan",
+        "Rental Kendaraan",
+        "Design Interior",
+        "Travel Haji & Umroh"
+      ],
+      "hak_akses_admin": [
+        "Tambah kategori",
+        "Edit kategori",
+        "Hapus kategori"
+      ]
+    },
+    "10_manajemen_layanan": {
+      "hak_akses_admin": [
+        "Tambah layanan",
+        "Edit layanan",
+        "Hapus layanan"
+      ],
+      "field": [
+        "Nama layanan",
+        "Deskripsi",
+        "Foto",
+        "Status aktif/nonaktif"
+      ]
+    },
+    "11_manajemen_company_profile": [
+      "Tentang Kami",
+      "Visi",
+      "Misi",
+      "Keunggulan Perusahaan",
+      "Informasi Kontak"
+    ],
+    "12_manajemen_banner_homepage": [
+      "Upload banner.",
+      "Mengubah judul banner.",
+      "Mengubah deskripsi banner.",
+      "Mengatur tombol CTA (Call To Action)."
+    ],
+    "13_pengaturan_website": [
+      "Nomor WhatsApp",
+      "Email",
+      "Alamat",
+      "Link Facebook",
+      "Link Instagram",
+      "Link TikTok"
+    ],
+    "14_integrasi_whatsapp": {
+      "nomor_utama": "+62 896-4348-3985",
+      "tombol": "Hubungi Kami",
+      "aksi_tombol": [
+        "Membuka WhatsApp.",
+        "Mengirim pesan otomatis.",
+        "Mengarahkan langsung ke admin."
+      ],
+      "contoh_pesan": "Halo Rah-MART,\nSaya tertarik dengan produk:\n[Nama Produk]\nHarga:\n[Harga Produk]\nMohon informasi lebih lanjut.\nTerima kasih."
+    },
+    "15_hak_akses": {
+      "role_tersedia": "Super Admin (Versi awal hanya membutuhkan 1 role)",
+      "akses_penuh": [
+        "Kelola produk.",
+        "Kelola kategori.",
+        "Kelola layanan.",
+        "Kelola company profile.",
+        "Kelola banner.",
+        "Kelola pengaturan website."
+      ]
+    },
+    "16_out_of_scope": {
+      "catatan": "Semua transaksi dilakukan melalui WhatsApp.",
+      "fitur_tidak_tersedia": [
+        "Payment Gateway",
+        "Checkout Online",
+        "Keranjang Belanja",
+        "Registrasi User",
+        "Login Customer",
+        "Marketplace Multi Seller",
+        "Sistem Pengiriman",
+        "Sistem Pembayaran Otomatis"
+      ]
+    },
+    "17_teknologi_direkomendasikan": {
+      "frontend": [
+        "HTML5",
+        "CSS3",
+        "Bootstrap 5",
+        "JavaScript"
+      ],
+      "backend": [
+        "Laravel 12"
+      ],
+      "database": [
+        "MySQL"
+      ],
+      "storage": [
+        "Local Storage",
+        "Cloud Storage"
+      ],
+      "hosting": [
+        "VPS",
+        "Shared Hosting"
+      ]
+    },
+    "18_alur_pengguna": [
+      "Pengunjung membuka website Rah-MART.",
+      "Pengunjung melihat katalog produk atau layanan.",
+      "Pengunjung memilih produk yang diminati.",
+      "Pengunjung membuka halaman detail produk.",
+      "Pengunjung menekan tombol 'Hubungi via WhatsApp'.",
+      "WhatsApp terbuka dengan pesan otomatis.",
+      "Negosiasi dan transaksi dilakukan langsung dengan tim Rah-MART."
+    ],
+    "19_scope_mvp": {
+      "wajib_tersedia": [
+        "Company Profile",
+        "Katalog Properti",
+        "Katalog Kendaraan",
+        "Katalog Layanan",
+        "Detail Produk",
+        "Search Produk",
+        "Filter Kategori",
+        "Dashboard Admin",
+        "Upload Multiple Foto",
+        "Integrasi WhatsApp",
+        "Responsive Mobile & Desktop"
+      ],
+      "belum_diperlukan": [
+        "Payment Gateway",
+        "Keranjang Belanja",
+        "Login Customer",
+        "Marketplace Multi Vendor",
+        "Sistem Pengiriman",
+        "Membership"
+      ]
+    }
+  }
+}
