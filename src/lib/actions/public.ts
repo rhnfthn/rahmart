@@ -18,3 +18,14 @@ export async function getAllBanners() {
 export async function getCompanyProfile() {
   return prisma.companyProfile.findFirst();
 }
+
+export async function getActiveServices() {
+  return prisma.service.findMany({
+    where: { isActive: true },
+    orderBy: { createdAt: "desc" },
+  });
+}
+
+export async function getWebSetting() {
+  return prisma.webSetting.findFirst();
+}

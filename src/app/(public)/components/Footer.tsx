@@ -21,6 +21,7 @@ export function Footer() {
               <li><Link href="/katalog" className="hover:text-foreground">Katalog</Link></li>
               <li><Link href="/layanan" className="hover:text-foreground">Layanan</Link></li>
               <li><Link href="/tentang-kami" className="hover:text-foreground">Tentang Kami</Link></li>
+              <li><Link href="/kontak" className="hover:text-foreground">Kontak</Link></li>
             </ul>
           </div>
 
@@ -39,7 +40,7 @@ export function Footer() {
           <div className="space-y-3">
             <h4 className="text-sm font-semibold">Kontak</h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
-              <li>WhatsApp: 0812-3456-7890</li>
+              <li>WhatsApp: 0896-4348-3985</li>
               <li>Email: info@rahmart.com</li>
               <li>Jakarta Selatan, Indonesia</li>
             </ul>

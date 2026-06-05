@@ -9,6 +9,7 @@ const NAV_LINKS = [
   { label: "Katalog", href: "/katalog" },
   { label: "Layanan", href: "/layanan" },
   { label: "Tentang Kami", href: "/tentang-kami" },
+  { label: "Kontak", href: "/kontak" },
 ] as const;
 
 export function Navbar() {
@@ -35,7 +36,7 @@ export function Navbar() {
         </nav>
 
         <div className="hidden md:block">
-          <Link href="https://wa.me/6281234567890" target="_blank">
+          <Link href="https://wa.me/6289643483985" target="_blank">
             <Button size="sm">Hubungi Kami</Button>
           </Link>
         </div>
@@ -67,7 +68,7 @@ export function Navbar() {
               </Link>
             ))}
             <Link
-              href="https://wa.me/6281234567890"
+              href="https://wa.me/6289643483985"
               target="_blank"
               className="mt-2"
               onClick={() => setMobileOpen(false)}

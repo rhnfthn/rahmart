@@ -1,19 +1,18 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { getBanners } from "@/lib/actions/banner";
+import { BannerTable } from "./components/banner-table";
 
-export default function AdminBannerPage() {
+export default async function AdminBannerPage() {
+  const banners = await getBanners();
+
   return (
     <div className="space-y-6">
-      <div className="flex items-center justify-between">
-        <h1 className="text-2xl font-bold">Pengaturan Banner</h1>
+      <div>
+        <h1 className="text-2xl font-bold">Banner Beranda</h1>
+        <p className="text-sm text-muted-foreground">
+          Kelola banner yang tampil di halaman beranda. Saat ini ada {banners.length} banner.
+        </p>
       </div>
-      <Card>
-        <CardHeader>
-          <CardTitle>Daftar Banner</CardTitle>
-        </CardHeader>
-        <CardContent>
-          <p className="text-sm text-muted-foreground">Manajemen banner akan ditampilkan di sini.</p>
-        </CardContent>
-      </Card>
+      <BannerTable banners={banners} />
     </div>
   );
 }

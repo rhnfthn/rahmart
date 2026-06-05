@@ -202,6 +202,7 @@ export async function getDashboardStats() {
     totalServices,
     totalTersedia,
     totalTerjual,
+    latestProducts,
   ] = await Promise.all([
     prisma.product.count(),
     prisma.product.count({ where: { category: { slug: "properti" } } }),
@@ -209,6 +210,11 @@ export async function getDashboardStats() {
     prisma.service.count(),
     prisma.product.count({ where: { status: "TERSEDIA" } }),
     prisma.product.count({ where: { status: "TERJUAL" } }),
+    prisma.product.findMany({
+      orderBy: { createdAt: "desc" },
+      take: 5,
+      include: { category: true },
+    }),
   ]);
 
   return {
@@ -218,5 +224,6 @@ export async function getDashboardStats() {
     totalServices,
     totalTersedia,
     totalTerjual,
+    latestProducts,
   };
 }

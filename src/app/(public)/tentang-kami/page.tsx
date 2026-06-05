@@ -1,6 +1,11 @@
 import { getCompanyProfile } from "@/lib/actions/public";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
+export const metadata = {
+  title: "Tentang Kami - Rah-MART",
+  description: "Mengenal lebih dekat Rah-MART dan visi kami dalam menyediakan solusi digital terbaik.",
+};
+
 export default async function TentangKamiPage() {
   const profile = await getCompanyProfile();
 
@@ -21,7 +26,7 @@ export default async function TentangKamiPage() {
         </CardHeader>
         <CardContent>
           <p className="whitespace-pre-line text-muted-foreground leading-relaxed">
-            {profile?.about ?? "Profil perusahaan belum tersedia."}
+            {profile?.tentang || "Profil perusahaan belum tersedia."}
           </p>
         </CardContent>
       </Card>
@@ -34,7 +39,7 @@ export default async function TentangKamiPage() {
           </CardHeader>
           <CardContent>
             <p className="whitespace-pre-line text-muted-foreground leading-relaxed">
-              {profile?.vision ?? "Belum tersedia."}
+              {profile?.visi || "Belum tersedia."}
             </p>
           </CardContent>
         </Card>
@@ -45,57 +50,27 @@ export default async function TentangKamiPage() {
           </CardHeader>
           <CardContent>
             <p className="whitespace-pre-line text-muted-foreground leading-relaxed">
-              {profile?.mission ?? "Belum tersedia."}
+              {profile?.misi || "Belum tersedia."}
             </p>
           </CardContent>
         </Card>
       </div>
 
-      {/* Kontak */}
-      {profile && (
+      {/* Keunggulan */}
+      {profile?.keunggulan && (
         <Card>
           <CardHeader>
-            <CardTitle>Hubungi Kami</CardTitle>
+            <CardTitle>Keunggulan</CardTitle>
           </CardHeader>
           <CardContent>
-            <dl className="grid gap-4 sm:grid-cols-2">
-              {profile.phone && (
-                <div>
-                  <dt className="text-sm font-medium text-muted-foreground">Telepon</dt>
-                  <dd className="mt-1">{profile.phone}</dd>
+            <div className="grid gap-3 sm:grid-cols-2">
+              {profile.keunggulan.split("\n").filter(Boolean).map((item, idx) => (
+                <div key={idx} className="flex items-start gap-2">
+                  <span className="mt-0.5 text-lg">✅</span>
+                  <p className="text-muted-foreground">{item.trim()}</p>
                 </div>
-              )}
-              {profile.email && (
-                <div>
-                  <dt className="text-sm font-medium text-muted-foreground">Email</dt>
-                  <dd className="mt-1">{profile.email}</dd>
-                </div>
-              )}
-              {profile.address && (
-                <div>
-                  <dt className="text-sm font-medium text-muted-foreground">Alamat</dt>
-                  <dd className="mt-1 whitespace-pre-line">{profile.address}</dd>
-                </div>
-              )}
-              {profile.whatsapp && (
-                <div>
-                  <dt className="text-sm font-medium text-muted-foreground">WhatsApp</dt>
-                  <dd className="mt-1">{profile.whatsapp}</dd>
-                </div>
-              )}
-              {profile.instagram && (
-                <div>
-                  <dt className="text-sm font-medium text-muted-foreground">Instagram</dt>
-                  <dd className="mt-1">{profile.instagram}</dd>
-                </div>
-              )}
-              {profile.facebook && (
-                <div>
-                  <dt className="text-sm font-medium text-muted-foreground">Facebook</dt>
-                  <dd className="mt-1">{profile.facebook}</dd>
-                </div>
-              )}
-            </dl>
+              ))}
+            </div>
           </CardContent>
         </Card>
       )}

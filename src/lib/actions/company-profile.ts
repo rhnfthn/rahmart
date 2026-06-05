@@ -35,6 +35,7 @@ export async function upsertCompanyProfile(input: CompanyProfileInput): Promise<
     }
 
     revalidatePath("/admin/company-profile");
+    revalidatePath("/tentang-kami");
     return { success: true, data: profile };
   } catch (error) {
     console.error("[upsertCompanyProfile]", error);
