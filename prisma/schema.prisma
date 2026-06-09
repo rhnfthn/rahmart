@@ -36,13 +36,13 @@ model User {
 }
 
 model Category {
-  id        String    @id @default(cuid())
+  id        String   @id @default(cuid())
   name      String
-  slug      String    @unique
+  slug      String   @unique
   products  Product[]
-  type      String
-  createdAt DateTime  @default(now())
-  updatedAt DateTime  @updatedAt
+  type      String   @default("umum") 
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
   @@map("categories")
 }
