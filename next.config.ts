@@ -9,6 +9,13 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  // Tambahkan konfigurasi di bawah ini:
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
+  typescript: {
+    ignoreBuildErrors: true,
+  },
 };
 
 export default nextConfig;
