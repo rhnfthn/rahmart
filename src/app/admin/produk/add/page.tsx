@@ -11,7 +11,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Select } from "@/components/ui/select";
 import { createProduct, updateProduct, getProductById, ProductInput } from "@/lib/actions/product";
 import { getCategories } from "@/lib/actions/category";
-import { Category, ProductStatus } from "@prisma/client";
+import { Category, ProductStatus, TipeItem } from "@prisma/client";
 
 export default function AdminProdukFormPage() {
   const router = useRouter();
@@ -26,6 +26,7 @@ export default function AdminProdukFormPage() {
   const [form, setForm] = useState<ProductInput>({
     name: "",
     categoryId: "",
+    tipeItem: "ASET",
     price: 0,
     description: "",
     location: "",
@@ -45,6 +46,7 @@ export default function AdminProdukFormPage() {
           setForm({
             name: product.name,
             categoryId: product.categoryId,
+            tipeItem: product.tipeItem,
             price: Number(product.price),
             description: product.description,
             location: product.location,
@@ -62,6 +64,14 @@ export default function AdminProdukFormPage() {
     setForm((prev) => ({
       ...prev,
       [name]: name === "price" ? Number(value) : value,
+    }));
+  }
+
+  function handleTipeItemChange(value: TipeItem) {
+    setForm((prev) => ({
+      ...prev,
+      tipeItem: value,
+      price: value === "JASA" ? 0 : prev.price,
     }));
   }
 
@@ -152,6 +162,54 @@ export default function AdminProdukFormPage() {
 
         <Card>
           <CardHeader>
+            <CardTitle>Tipe Item</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="flex gap-4">
+              {(["ASET", "JASA"] as TipeItem[]).map((tipe) => (
+                <label
+                  key={tipe}
+                  className={`flex flex-1 cursor-pointer items-center gap-3 rounded-lg border-2 p-4 transition-all ${
+                    form.tipeItem === tipe
+                      ? "border-[#D92820] bg-[#D92820]/5"
+                      : "border-border hover:border-[#D92820]/40"
+                  }`}
+                >
+                  <input
+                    type="radio"
+                    name="tipeItem"
+                    value={tipe}
+                    checked={form.tipeItem === tipe}
+                    onChange={() => handleTipeItemChange(tipe)}
+                    className="sr-only"
+                  />
+                  <div
+                    className={`flex h-5 w-5 items-center justify-center rounded-full border-2 ${
+                      form.tipeItem === tipe ? "border-[#D92820]" : "border-muted-foreground/40"
+                    }`}
+                  >
+                    {form.tipeItem === tipe && (
+                      <div className="h-2.5 w-2.5 rounded-full bg-[#D92820]" />
+                    )}
+                  </div>
+                  <div>
+                    <span className="text-sm font-medium">
+                      {tipe === "ASET" ? "Aset Fisik" : "Jasa Profesional"}
+                    </span>
+                    <p className="text-xs text-muted-foreground">
+                      {tipe === "ASET"
+                        ? "Produk berupa barang fisik dengan harga pasti"
+                        : "Layanan profesional, harga via konsultasi"}
+                    </p>
+                  </div>
+                </label>
+              ))}
+            </div>
+          </CardContent>
+        </Card>
+
+        <Card className="mt-6">
+          <CardHeader>
             <CardTitle>Informasi Produk</CardTitle>
           </CardHeader>
           <CardContent className="space-y-4">
@@ -174,24 +232,34 @@ export default function AdminProdukFormPage() {
                   <option value="">Pilih Kategori</option>
                   {categories.map((cat) => (
                     <option key={cat.id} value={cat.id}>
-                      {cat.name} ({cat.type})
+                      {cat.name}
                     </option>
                   ))}
                 </Select>
               </div>
-              <div className="space-y-2">
-                <Label htmlFor="price">Harga (IDR) *</Label>
-                <Input
-                  id="price"
-                  name="price"
-                  type="number"
-                  value={form.price}
-                  onChange={handleChange}
-                  placeholder="0"
-                  min={0}
-                  required
-                />
-              </div>
+
+              {form.tipeItem === "ASET" ? (
+                <div className="space-y-2">
+                  <Label htmlFor="price">Harga (IDR) *</Label>
+                  <Input
+                    id="price"
+                    name="price"
+                    type="number"
+                    value={form.price}
+                    onChange={handleChange}
+                    placeholder="0"
+                    min={0}
+                    required
+                  />
+                </div>
+              ) : (
+                <div className="space-y-2">
+                  <Label>Harga</Label>
+                  <div className="flex h-10 items-center rounded-md border border-input bg-muted px-3 text-sm text-muted-foreground">
+                    Harga ditentukan via konsultasi admin
+                  </div>
+                </div>
+              )}
             </div>
 
             <div className="space-y-2">

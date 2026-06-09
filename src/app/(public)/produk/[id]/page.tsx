@@ -1,12 +1,11 @@
 import { notFound } from "next/navigation";
-import Image from "next/image";
 import Link from "next/link";
 import { getProductById } from "@/lib/actions/product";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { ProductGallery } from "./components/product-gallery";
-import { WhatsAppButton } from "./components/whatsapp-button";
+import { WhatsAppButton } from "@/components/whatsapp-button";
 
 interface Props {
   params: Promise<{ id: string }>;
@@ -51,6 +50,7 @@ export default async function ProdukDetailPage({ params }: Props) {
   };
 
   const status = statusMap[product.status];
+  const isJasa = product.tipeItem === "JASA";
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-8 sm:px-6">
@@ -75,9 +75,15 @@ export default async function ProdukDetailPage({ params }: Props) {
               <Badge variant={status.variant}>{status.label}</Badge>
             </div>
             <h1 className="text-2xl font-bold sm:text-3xl">{product.name}</h1>
-            <p className="text-3xl font-bold text-primary">
-              {formatPrice(Number(product.price))}
-            </p>
+            {isJasa ? (
+              <p className="text-lg font-semibold text-[#D92820]">
+                Hubungi untuk Harga
+              </p>
+            ) : (
+              <p className="text-3xl font-bold text-primary">
+                {formatPrice(Number(product.price))}
+              </p>
+            )}
           </div>
 
           <div className="space-y-2 text-sm">
@@ -98,8 +104,8 @@ export default async function ProdukDetailPage({ params }: Props) {
 
           {/* WhatsApp CTA */}
           <WhatsAppButton
+            tipeItem={product.tipeItem}
             productName={product.name}
-            productPrice={formatPrice(Number(product.price))}
           />
 
           <Link href="/katalog">

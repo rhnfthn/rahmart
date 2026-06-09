@@ -10,7 +10,6 @@ const NAV_ITEMS = [
   { label: "Dashboard", href: "/admin/dashboard", icon: "📊" },
   { label: "Manajemen Kategori", href: "/admin/kategori", icon: "🏷️" },
   { label: "Manajemen Produk", href: "/admin/produk", icon: "📦" },
-  { label: "Manajemen Layanan", href: "/admin/layanan", icon: "🔧" },
   { label: "Company Profile", href: "/admin/company-profile", icon: "🏢" },
   { label: "Banner Beranda", href: "/admin/banner", icon: "🖼️" },
   { label: "Pengaturan Website", href: "/admin/pengaturan", icon: "⚙️" },

@@ -21,7 +21,7 @@ export default async function AdminDashboardPage() {
           { title: "Total Produk", value: stats.totalProducts, icon: "📦" },
           { title: "Total Properti", value: stats.totalProperti, icon: "🏠" },
           { title: "Total Kendaraan", value: stats.totalKendaraan, icon: "🚗" },
-          { title: "Total Layanan", value: stats.totalServices, icon: "🔧" },
+          { title: "Produk Tersedia", value: stats.totalTersedia, icon: "✅" },
         ].map((card) => (
           <Card key={card.title}>
             <CardHeader className="flex flex-row items-center justify-between pb-2">

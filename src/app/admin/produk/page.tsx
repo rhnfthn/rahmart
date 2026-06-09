@@ -46,7 +46,7 @@ export default async function AdminProdukPage({ searchParams }: Props) {
           <h1 className="text-2xl font-bold">Manajemen Produk</h1>
           <p className="text-sm text-muted-foreground">Total {total} produk terdaftar</p>
         </div>
-        <Link href="/admin/produk/form">
+        <Link href="/admin/produk/add">
           <Button>+ Tambah Produk</Button>
         </Link>
       </div>

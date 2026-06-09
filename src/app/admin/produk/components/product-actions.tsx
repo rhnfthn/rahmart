@@ -37,7 +37,7 @@ export function ProductActions({ productId, productName }: Props) {
       <Button
         variant="ghost"
         size="sm"
-        onClick={() => router.push(`/admin/produk/form?id=${productId}`)}
+        onClick={() => router.push(`/admin/produk/add?id=${productId}`)}
       >
         Edit
       </Button>

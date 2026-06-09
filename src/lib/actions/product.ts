@@ -1,13 +1,14 @@
 "use server";
 
 import { prisma } from "@/lib/prisma";
-import { ProductStatus } from "@prisma/client";
+import { ProductStatus, TipeItem } from "@prisma/client";
 import { revalidatePath } from "next/cache";
 
 export interface ProductInput {
   id?: string;
   name: string;
   categoryId: string;
+  tipeItem: TipeItem;
   price: number;
   description: string;
   location: string;
@@ -67,7 +68,8 @@ export async function getProductById(id: string) {
 
 export async function createProduct(input: ProductInput): Promise<ActionResponse> {
   try {
-    if (!input.name || !input.categoryId || !input.price || !input.description || !input.location || !input.mainImage) {
+    const isJasa = input.tipeItem === "JASA";
+    if (!input.name || !input.categoryId || (!isJasa && !input.price) || !input.description || !input.location || !input.mainImage) {
       return { success: false, error: "Semua field wajib harus diisi" };
     }
 
@@ -75,6 +77,7 @@ export async function createProduct(input: ProductInput): Promise<ActionResponse
       data: {
         name: input.name,
         categoryId: input.categoryId,
+        tipeItem: input.tipeItem ?? TipeItem.ASET,
         price: input.price,
         description: input.description,
         location: input.location,
@@ -104,6 +107,7 @@ export async function updateProduct(id: string, input: ProductInput): Promise<Ac
       data: {
         name: input.name,
         categoryId: input.categoryId,
+        tipeItem: input.tipeItem,
         price: input.price,
         description: input.description,
         location: input.location,
@@ -199,7 +203,6 @@ export async function getDashboardStats() {
     totalProducts,
     totalProperti,
     totalKendaraan,
-    totalServices,
     totalTersedia,
     totalTerjual,
     latestProducts,
@@ -207,7 +210,6 @@ export async function getDashboardStats() {
     prisma.product.count(),
     prisma.product.count({ where: { category: { slug: "properti" } } }),
     prisma.product.count({ where: { category: { slug: "kendaraan" } } }),
-    prisma.service.count(),
     prisma.product.count({ where: { status: "TERSEDIA" } }),
     prisma.product.count({ where: { status: "TERJUAL" } }),
     prisma.product.findMany({
@@ -221,7 +223,6 @@ export async function getDashboardStats() {
     totalProducts,
     totalProperti,
     totalKendaraan,
-    totalServices,
     totalTersedia,
     totalTerjual,
     latestProducts,
