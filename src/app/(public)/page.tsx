@@ -15,7 +15,11 @@ export default async function HomePage() {
   const banner = banners[0];
 
   function formatPrice(price: number) {
-    return new Intl.NumberFormat("id-ID", { style: "currency", currency: "IDR", minimumFractionDigits: 0 }).format(price);
+    return new Intl.NumberFormat("id-ID", {
+      style: "currency",
+      currency: "IDR",
+      minimumFractionDigits: 0,
+    }).format(price);
   }
 
   return (
@@ -55,34 +59,33 @@ export default async function HomePage() {
             </div>
 
             {/* Image / Banner */}
-<div className="relative">
-  <pre className="text-xs overflow-auto max-w-full">
-    {JSON.stringify(banner, null, 2)}
-  </pre>
+            <div className="relative">
+              <p className="text-xs text-red-500">
+                Banner: {banner ? "ADA" : "NULL"}
+              </p>
 
-  {banner ? (
-    <div className="relative aspect-[4/3] overflow-hidden rounded-2xl shadow-2xl">
-      <Image
-        src={banner.image}
-        alt={banner.title}
-        fill
-        className="object-cover"
-        priority
-        sizes="(max-width: 1024px) 100vw, 50vw"
-      />
-    </div>
-  ) : (
-    <div className="flex aspect-[4/3] items-center justify-center rounded-2xl bg-[#111111] shadow-2xl">
-      Banner akan muncul di sini
-    </div>
-  )}
-</div>
+              {banner ? (
+                <div className="relative aspect-[4/3] overflow-hidden rounded-2xl shadow-2xl">
+                  <Image
+                    src={banner.image}
+                    alt={banner.title}
+                    fill
+                    className="object-cover"
+                    priority
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                  />
+                </div>
+              ) : (
+                <div className="flex aspect-[4/3] items-center justify-center rounded-2xl bg-[#111111] shadow-2xl">
+                  Banner akan muncul di sini
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+      </section>
 
-</div>
-</div>
-</section>
-
-{/* ── KEUNGGULAN ── */}
+      {/* ── KEUNGGULAN ── */}
 
       {/* ── KEUNGGULAN ── */}
       {profile?.keunggulan && (
