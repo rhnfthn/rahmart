@@ -60,10 +60,6 @@ export default async function HomePage() {
 
             {/* Image / Banner */}
             <div className="relative">
-              <p className="text-xs text-red-500">
-                Banner: {banner ? "ADA" : "NULL"}
-              </p>
-
               {banner ? (
                 <div className="relative aspect-[4/3] overflow-hidden rounded-2xl shadow-2xl">
                   <Image
@@ -77,7 +73,14 @@ export default async function HomePage() {
                 </div>
               ) : (
                 <div className="flex aspect-[4/3] items-center justify-center rounded-2xl bg-[#111111] shadow-2xl">
-                  Banner akan muncul di sini
+                  <div className="text-center space-y-4 px-8">
+                    <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-2xl bg-[#D92820]">
+                      <Search className="h-10 w-10 text-white" />
+                    </div>
+                    <p className="text-sm text-white/60">
+                      Banner akan muncul di sini
+                    </p>
+                  </div>
                 </div>
               )}
             </div>
