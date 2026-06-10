@@ -73,10 +73,16 @@ export default async function HomePage() {
     </div>
   ) : (
     <div className="flex aspect-[4/3] items-center justify-center rounded-2xl bg-[#111111] shadow-2xl">
-      ...
+      Banner akan muncul di sini
     </div>
   )}
 </div>
+
+</div>
+</div>
+</section>
+
+{/* ── KEUNGGULAN ── */}
 
       {/* ── KEUNGGULAN ── */}
       {profile?.keunggulan && (
